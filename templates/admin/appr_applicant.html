@@ -1,0 +1,36 @@
+{% extends 'admin/admin_base.html' %}
+{% block content %}
+{% load static %}
+{#    <h1>Admin Dashboard</h1>#}
+<div id="page-inner">
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+<h1>New Applicant Registration</h1>
+<table class="table table-bordered table-striped table-hover">
+
+<th class="info" style="background-color: #49e4fa">NAME</th>
+<th class="info" style="background-color: #49e4fa">EMAIL</th>
+<th class="info" style="background-color: #49e4fa">CONTACT NUMBER</th>
+<th class="info" style="background-color: #49e4fa">ADDRESS</th>
+<th class="info" style="background-color: #49e4fa">APPROVE</th>
+<th class="info" style="background-color: #49e4fa">REJECT</th>
+{% for co in user  %}
+
+<tr>
+    <td style="background-color: white">{{ co.user.first_name}}</td>
+    <td style="background-color: white">{{ co.user.email}}</td>
+    <td style="background-color: white">{{ co.contact}}</td>
+    <td style="background-color: white">{{ co.address}}</td>
+    <td style="background-color: white"><a href="approve?id={{ co.user_id}}" class=" btn btn-success">Approve</a></td>
+    <td style="background-color: white"><a href="reject?id={{ co.user_id}}" class=" btn btn-danger">Reject</a></td>
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+
+{% endblock %}

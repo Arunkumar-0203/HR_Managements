@@ -1,0 +1,39 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+    <section class="service-area section-gap" id="service">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-8 pb-40 header-text">
+							<h1>HR Manager Reports</h1>
+							<p>
+								Who are in extremely love with eco friendly system.
+							</p>
+						</div>
+					</div>
+                    {% for re in post %}
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-user"></span>{{ re.hr.user.first_name }}</h4>
+								<p>
+                                    Number Of Employee :{{ re.noemployee }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="details_employee?id={{ re.hr_id }}">Details</a>
+								</p>
+                                <p>
+                                    Number Of Works &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{{ re.noworks }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="work_details?id={{ re.hr_id }}">Details</a>
+								</p>
+                                <p>
+                                    Reported Date :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:{{ re.date }}
+								</p>
+							</div>
+						</div>
+                    </div>
+                    {% endfor %}
+                </div>
+    </section>
+
+
+{% endblock %}

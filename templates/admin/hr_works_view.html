@@ -1,0 +1,47 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+        <section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Allocated Works</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+
+<div id="page-inner" >
+<table class="table table-bordered table-striped table-hover">
+
+<th class="success" style="background-color: #49e4fa">DESCRIPTION</th>
+<th class="success" style="background-color: #49e4fa">EMPLOYEE NAME</th>
+<th class="success" style="background-color: #49e4fa">DATE</th>
+<th class="success" style="background-color: #49e4fa">DOCUMENT</th>
+
+{% for com in post %}
+
+<tr>
+    <td style="background-color: white">{{ com.description}}</td>
+    <td style="background-color: white">{{ com.employee.user.first_name}}</td>
+    <td style="background-color: white">{{ com.date}}</td>
+    <td style="background-color: white"><a href="{{ com.photo.url}}" target="_blank">Download</a>Document</td>
+
+
+
+
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+                </div>
+</section>
+
+
+{% endblock %}

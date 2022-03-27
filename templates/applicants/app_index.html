@@ -1,0 +1,9 @@
+{% extends 'applicants/app_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+
+{% endblock %}

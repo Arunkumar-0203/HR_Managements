@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<section class="contact-page-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 d-flex flex-column">
+							<a class="contact-btns" href="#">Login Here.....</a>
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                                        <label>Enter Your Username</label>
+                                        <input name="username" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+                                        <label>Enter Your Password</label>
+                                        <input name="password" placeholder=""  class="common-input mb-20 form-control" required="" type="password">
+										<button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Login</button>
+										<div class="mt-20 alert-msg" style="text-align: left;"></div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+{% endblock %}

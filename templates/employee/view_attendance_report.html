@@ -1,0 +1,67 @@
+{% extends 'employee/emp_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+    <section class="blog-posts-area section-gap">
+				<div class="container" style="background-color: #9fcdff ">
+                    <h1 class="text-white">
+								<span></span> Search
+							</h1>
+                        <form method="post" class="serach-form-area">
+                            {% csrf_token %}
+								<div class="row justify-content-center form-wrap">
+                                    <label>Search By Using Date of Report Submitt</label>
+									<div class="col-lg-3 form-cols">
+                                        <input type="date" class="form-control" name="srh" placeholder="select date">
+									</div>
+									<div class="col-lg-2 form-cols">
+									    <button type="submit" class="btn btn-info">
+									      <span class="lnr lnr-magnifier"></span> Search
+									    </button>
+									</div>
+								</div>
+							</form>
+							<p class="text-white"> <span></span></p>
+
+					<div class="row">
+                        <div class="col-lg-8 post-list blog-post-list">
+							<div class="single-post">
+								<img class="img-fluid" src="img/blog/p1.jpg" alt="">
+
+								<a href="blog-single.html">
+									<h1>
+										MY ATTENDANCE REPORT
+									</h1>
+								</a>
+									<p>
+                                      <label>Calculated Date :&nbsp; &nbsp;{{ post.gdate }}</label>
+                                    </p>
+                                   <label style="font-size:20px">Report</label>
+                                    <p>
+                                        <label style="color:#795fff">Name : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ post.employee.user.first_name }}</label>
+									</p>
+
+                                    <p>
+                                        <label style="color:#795fff">Present :  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ post.present }}</label>
+									</p>
+
+                                    <p>
+                                        <label style="color:#795fff">Absent : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ post.absent }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Report By : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ post.employee.accept.vacancy.vacancy.hr.user.first_name }} HR Management</label>
+                                        <a type="submit" href="attendance_details" class="primary-btn mt-20 text-white" style="float: right;">Details</a>
+									</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+
+
+{% endblock %}

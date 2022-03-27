@@ -1,0 +1,52 @@
+{% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Offer Letter Sent List</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+
+<div id="page-inner" >
+<table class="table table-bordered table-striped table-hover">
+
+<th class="success">VACANCY DETAILS</th>
+<th class="success">APPLICANT NAME</th>
+<th class="success">EMAIL</th>
+<th class="success">ADDRESS</th>
+<th class="success">OFFER LETTER</th>
+<th class="success">DESC</th>
+<th class="success">ADD AS EMPLOYEE</th>
+{% for com in offer %}
+
+<tr>
+    <td>{{ com.vacancy.vacancy.name}}, {{ com.vacancy.vacancy.date}}</td>
+    <td>{{ com.vacancy.user.user.first_name}}</td>
+    <td>{{ com.vacancy.user.user.email}}</td>
+    <td>{{ com.vacancy.user.address}}</td>
+    <td><a href="{{ com.letter.url}}" target="_blank">Download</a>OFFER LETTER</td>
+    <td>{{ com.desc}}</td>
+    <td><a href="add_employee?id={{ com.id}}" class=" btn btn-danger">Add As Employee</a></td>
+
+
+
+
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+                </div>
+</section>
+
+
+{% endblock %}

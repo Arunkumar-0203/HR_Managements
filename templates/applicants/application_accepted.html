@@ -1,0 +1,36 @@
+{% extends 'applicants/app_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<section class="service-area section-gap" id="service">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-8 pb-40 header-text">
+							<h1>My Offer Letters</h1>
+							<p>
+								Who are in extremely love with eco friendly system.
+							</p>
+						</div>
+					</div>
+                    {% for gh in post %}
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-user"></span>{{ gh.vacancy.vacancy.name }}</h4>
+								<h6><span ></span>Description :{{ gh.desc }}</h6>
+                                <h6>Offer Letter:<a href="{{ gh.letter.url }}" target="_blank"><span ></span>Download</a></h6>
+								<p>
+									Offer Letter is send by {{ gh.vacancy.vacancy.hr.user.first_name }} HR management.
+								</p>
+							</div>
+						</div>
+                    </div>
+                    {% endfor %}
+                </div>
+</section>
+
+
+
+{% endblock %}

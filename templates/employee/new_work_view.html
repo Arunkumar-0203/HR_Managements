@@ -1,0 +1,49 @@
+{% extends 'employee/emp_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+    <section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Allocated Works</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+
+<div id="page-inner" >
+<table class="table table-bordered table-striped table-hover">
+
+<th class="success">DESCRIPTION</th>
+<th class="success">DATE</th>
+<th class="success">DOCUMENT</th>
+<th class="success">UPDATE</th>
+
+{% for com in post %}
+
+<tr>
+    <td>{{ com.description}}</td>
+    <td>{{ com.date}}</td>
+    <td><a href="{{ com.photo.url}}" target="_blank">Download</a>Document</td>
+    <td><a href="update_work_status?id={{ com.id}}" class=" btn btn-danger">Update Status</a></td>
+
+
+
+
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+                </div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'employee/emp_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+    <section class="contact-page-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 d-flex flex-column">
+							<h2 class="contact-btns" href="#">Update Work</h2>
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right" ENCTYPE="multipart/form-data">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                                        <input name="emp" placeholder="" value="{{ post.id }}"  class="common-input mb-20 form-control" required="" type="hidden">
+                                        <label>Write Any Description</label>
+                                        <input name="desc" placeholder=""  class="common-input mb-20 form-control" type="text">
+
+                                        <label>Set Date</label>
+                                        <input name="date" placeholder=""  class="common-input mb-20 form-control" required="" type="date">
+                                        <label>Upload any Document or Work Report</label>
+                                        <input name="image" placeholder=""  class="common-input mb-20 form-control"  type="file">
+										<button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Update</button>
+										<div class="mt-20 alert-msg" style="text-align: center;"></div>
+									</div>
+								</div>
+							</form>
+						</div>
+                    </div>
+                </div>
+    </section>
+
+
+{% endblock %}

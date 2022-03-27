@@ -1,0 +1,38 @@
+{% extends 'applicants/app_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+    <section class="service-area section-gap" id="service">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-8 pb-40 header-text">
+							<h1>Your Become an Employee</h1>
+							<p>
+								Who are in extremely love with eco friendly system.
+							</p>
+						</div>
+					</div>
+                    {% for gh in post %}
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-user"></span>{{ gh.accept.vacancy.user.user.first_name }}</h4>
+								<h6><span ></span>Employee ID :{{ gh.empid }}</h6>
+								<h6><span ></span>Mode Recruitment :{{ gh.moderecuirt }}</h6>
+								<h6><span ></span>Date of join :{{ gh.dateofjoin }}</h6>
+								<h6><span ></span>Reporting Boss :{{ gh.reportingboss }}</h6>
+								<h6><span ></span>Basic Salary :{{ gh.basicsalary }}</h6>
+								<p>
+									Now you are a employee of our company the you have a Username({{ gh.user.username }}) and Password({{ gh.user.username }}) for employee login.
+								</p>
+							</div>
+						</div>
+                    </div>
+                    {% endfor %}
+                </div>
+</section>
+
+
+{% endblock %}

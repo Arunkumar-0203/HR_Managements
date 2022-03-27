@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<section class="contact-page-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 d-flex flex-column">
+							<a class="contact-btns" href="#">Create New Applicant Account</a>
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                                        <label>Enter your name</label>
+										<input name="name" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+										<label>Enter your Address</label>
+                                        <input name="address" placeholder="" class="common-input mb-20 form-control" required="" type="text">
+										<label>Enter your Contact</label>
+                                        <input name="contact" placeholder="" pattern="[6-9]{1}[0-9]{9}" class="common-input mb-20 form-control" required="" type="number">
+                                        <label>Enter email address</label>
+										<input name="email" placeholder="" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" class="common-input mb-20 form-control" required="" type="email">
+                                        <label>Enter a Username</label>
+                                        <input name="username"   class="common-input mb-20 form-control" required="" type="text">
+                                        <label>Enter a Password</label>
+                                        <input name="password" placeholder=""  class="common-input mb-20 form-control" required="" type="password">
+                                        <h5>Account <a href="login">login</a></h5>
+										<button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Register</button>
+										<div class="mt-20 alert-msg" style="text-align: left;"></div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<section class="contact-page-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 d-flex flex-column">
+							<h2 class="contact-btns" href="#">Add Employee Details</h2>
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right" ENCTYPE="multipart/form-data">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                        <div class="col-lg-4 d-flex flex-column">
+							<h2 class="contact-btns" href="#">Personal Details</h2>
+						</div>
+                                        <input name="name" value="{{ offer.vacancy.user.user.first_name }}" class="common-input mb-20 form-control" required="" type="hidden">
+                                        <input name="emailid" value="{{ offer.vacancy.user.user.email }}" class="common-input mb-20 form-control" required="" type="hidden">
+                                        <input name="password" value="{{ offer.vacancy.user.user.email }}" class="common-input mb-20 form-control" required="" type="hidden">
+                                        <input name="username" value="{{ offer.vacancy.user.user.email }}" class="common-input mb-20 form-control" required="" type="hidden">
+                                        <input name="presentadd" value="{{ offer.vacancy.user.address }}" class="common-input mb-20 form-control" required="" type="hidden">
+                                        <input name="cont" value="{{ offer.vacancy.user.contact }}" class="common-input mb-20 form-control" required="" type="hidden">
+                                        <input name="acc" value="{{ offer.id }}" class="common-input mb-20 form-control" required="" type="hidden">
+
+										<label>Employee ID</label>
+                                        <input name="emid" placeholder="" class="common-input mb-20 form-control" required="" type="text">
+										<label>Fathers Name</label>
+                                        <input name="fname" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+                                        <label>DOB</label>
+                                        <input name="dob" placeholder=""  class="common-input mb-20 form-control" required="" type="date">
+										<label>Gender</label>
+                                          <div class="form-group">
+                                           <select class="form-control" name="gen"  required>
+                                               <option selected="selected" value="" >Select Gender</option>
+                                               <option >Male</option>
+                                               <option >Female</option>
+                                               <option >Others</option>
+                                            </select>
+                                          </div>
+										<label>Religion</label>
+                                        <input name="rel" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+										<label>Blood Group</label>
+                                          <div class="form-group">
+                                           <select class="form-control" name="blood"  required>
+                                               <option selected="selected" value="" >Select Blood Group </option>
+                                               <option >A+</option>
+                                               <option >B+</option>
+                                               <option >O+</option>
+                                               <option >AB</option>
+                                               <option >A-</option>
+                                               <option >B-</option>
+                                               <option >O-</option>
+                                            </select>
+                                          </div>
+										<label>Marital Status</label>
+                                          <div class="form-group">
+                                           <select class="form-control" name="mari"  required>
+                                               <option selected="selected" value="" >Select One </option>
+                                               <option >Married</option>
+                                               <option >Unmarried</option>
+                                            </select>
+                                          </div>
+										<label>Nationality</label>
+                                        <input name="national" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+										<label>Permanent Address</label>
+                                        <input name="paddress" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+                                        <label>Upload A Photo</label>
+                                        <input name="photo" placeholder=""  class="common-input mb-20 form-control" required="" type="file">
+
+						<div class="col-lg-4 d-flex flex-column">
+							<h2 class="contact-btns" href="#">Job Details</h2>
+						</div>
+										<label>Mode Of Recruitment</label>
+                                          <div class="form-group">
+                                           <select class="form-control" name="mrecruit"  required>
+                                               <option selected="selected" value="" >Select One</option>
+                                               <option >Interview</option>
+                                               <option >Direct Apply</option>
+                                            </select>
+                                          </div>
+										<label>Date of Join</label>
+                                        <input name="datejoin" placeholder=""  class="common-input mb-20 form-control" required="" type="date">
+                                        <input name="depart" value="{{ offer.vacancy.vacancy.hr.department }}" placeholder=""  class="common-input mb-20 form-control" required="" type="hidden">
+                                        <label>Reporting Boss</label>
+                                        <input name="rboss" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+                                        <label>Basic Salary</label>
+                                        <input name="bsalary" placeholder=""  class="common-input mb-20 form-control" required="" type="number">
+										<h5>Account <a href="login">login</a></h5>
+                                        <button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Save</button>
+										<a href="/hr" class="primary-btn mt-20 text-white" style="float: right;">Cancel</a>
+										<div class="mt-20 alert-msg" style="text-align: center;"></div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Application List</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+
+<div id="page-inner" >
+<table class="table table-bordered table-striped table-hover">
+
+<th class="success">VACANCY DETAILS</th>
+<th class="success">APPLICANT NAME</th>
+<th class="success">EMAIL</th>
+<th class="success">ADDRESS</th>
+<th class="success">DOWNLOAD CURRICULUM VITAE</th>
+<th class="success">ADD TO INTERVIEW</th>
+<th class="success">ACCEPT NOW</th>
+<th class="success">DECLINED</th>
+{% for com in post %}
+
+<tr>
+    <td>{{ com.vacancy.name}}, {{ com.vacancy.date}}</td>
+    <td>{{ com.user.user.first_name}}</td>
+    <td>{{ com.user.user.email}}</td>
+    <td>{{ com.user.address}}</td>
+    <td><a href="{{ com.cv.url}}" target="_blank">Download</a>CV</td>
+    <td><a href="interview?id={{ com.id}}" class=" btn btn-danger">Interview</a></td>
+    <td><a href="accept_application?id={{ com.id}}" class=" btn btn-danger">Accept</a></td>
+    <td><a href="declined?id={{ com.id}}" class=" btn btn-danger">Declined</a></td>
+
+
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+                </div>
+</section>
+
+
+{% endblock %}

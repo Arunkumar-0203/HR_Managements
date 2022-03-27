@@ -1,0 +1,51 @@
+{% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+    <section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Employee Work Status</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+
+<div id="page-inner" >
+<table class="table table-bordered table-striped table-hover">
+
+<th class="success">EMPLOYEE ID</th>
+<th class="success">DEPARTMENT</th>
+<th class="success">EMPLOYEE NAME</th>
+<th class="success">DESCRIPTION</th>
+<th class="success">DATE</th>
+<th class="success">DOCUMENT</th>
+
+{% for com in empl %}
+
+<tr>
+    <td>{{ com.addwork.employee.empid}}</td>
+    <td>{{ com.addwork.employee.department}}</td>
+    <td>{{ com.addwork.employee.user.first_name}}</td>
+    <td>{{ com.description}}</td>
+    <td>{{ com.date}}</td>
+    <td><a href="{{ com.photo.url}}" target="_blank">Download</a>DOCUMENT</td>
+
+
+
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+                </div>
+</section>
+
+
+{% endblock %}

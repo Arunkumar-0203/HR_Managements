@@ -1,0 +1,31 @@
+{% extends 'admin/admin_base.html' %}
+{% block content %}
+{% load static %}
+{#    <h1>Admin Dashboard</h1>#}
+<div id="page-inner" >
+<h1>HR Manager List</h1>
+<table class="table table-bordered table-striped table-hover">
+
+<th class="success" style="background-color: #49e4fa">NAME</th>
+<th class="success" style="background-color: #49e4fa">EMAIL</th>
+<th class="success" style="background-color: #49e4fa">DEPARTMENT</th>
+<th class="success" style="background-color: #49e4fa">CODE</th>
+<th class="success" style="background-color: #49e4fa">DATE OF JOIN</th>
+<th class="success" style="background-color: #49e4fa">REMOVE</th>
+{% for com in hr %}
+
+<tr>
+    <td style="background-color: white">{{ com.user.first_name}}</td>
+    <td style="background-color: white">{{ com.user.email}}</td>
+    <td style="background-color: white">{{ com.department}}</td>
+    <td style="background-color: white">{{ com.code}}</td>
+    <td style="background-color: white">{{ com.user.date_joined}}</td>
+    <td style="background-color: white"><a href="reject?id={{ com.user_id}}" class=" btn btn-danger">Remove</a></td>
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+
+{% endblock %}

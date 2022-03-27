@@ -1,0 +1,45 @@
+{% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Appointed Employee List</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+
+<div id="page-inner" >
+<table class="table table-bordered table-striped table-hover">
+
+<th class="success">IMAGE</th>
+<th class="success">POSITION DETAILS</th>
+<th class="success">EMPLOYEE NAME</th>
+<th class="success">GENERATE</th>
+{% for com in post %}
+
+<tr>
+    <td><img src="{{ com.photo.url}}"></td>
+    <td>{{ com.accept.vacancy.vacancy.name}}</td>
+    <td>{{ com.user.first_name}}</td>
+    <td><a href="generate_att_report?id={{ com.id }}" class=" btn btn-danger">Generate Attendance Report</a></td>
+
+
+
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+                </div>
+</section>
+
+
+{% endblock %}

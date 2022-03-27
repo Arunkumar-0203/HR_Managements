@@ -1,0 +1,48 @@
+{% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+    <section class="contact-page-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 d-flex flex-column">
+							<h2 class="contact-btns" href="#">Allocate Work</h2>
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right" ENCTYPE="multipart/form-data">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                                        <label>Write Any Description</label>
+                                        <input name="desc" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+
+                                        <label>Set Date</label>
+                                        <input name="date" placeholder=""  class="common-input mb-20 form-control" required="" type="date">
+                                        <label>Upload any Document or Work Report</label>
+                                        <input name="image" placeholder=""  class="common-input mb-20 form-control"  type="file">
+
+                                        <label>Select Employee</label>
+                                          <div class="form-group">
+                                           <select class="form-control" name="emplo"  required>
+                                               <option selected="selected" value="" >Select Employee</option>
+                                               {% for em in empl %}
+                                                  <option value="{{ em.id }}" >{{ em.user.first_name}}, {{ em.empid }}, {{ em.accept.vacancy.vacancy.name }}</option>
+                                               {% endfor %}
+
+                                            </select>
+                                          </div>
+										<button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Allocate Work</button>
+										<div class="mt-20 alert-msg" style="text-align: center;"></div>
+									</div>
+								</div>
+							</form>
+						</div>
+                    </div>
+                </div>
+    </section>
+
+
+
+{% endblock %}

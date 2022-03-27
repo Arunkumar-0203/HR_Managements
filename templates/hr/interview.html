@@ -1,0 +1,37 @@
+{% extends 'hr/hr_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<section class="contact-page-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 d-flex flex-column">
+							<h2 class="contact-btns" href="#">Add Interview Details</h2>
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                                        <label>Enter Place to Interview</label>
+										<input name="place" placeholder=""  class="common-input mb-20 form-control" required="" type="text">
+										<label>Date of Interview</label>
+                                        <input name="date" placeholder="" class="common-input mb-20 form-control" required="" type="date">
+										<label>Time For Interview</label>
+                                        <input name="time" placeholder=""  class="common-input mb-20 form-control" required="" type="time">
+                                        <input name="vacancy" value="{{ post.id }}" placeholder=""  class="common-input mb-20 form-control" required="" type="hidden">
+
+										<button type="submit" class="primary-btn mt-20 text-white" style="float: right;">Call For Interview</button>
+										<div class="mt-20 alert-msg" style="text-align: center;"></div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+{% endblock %}

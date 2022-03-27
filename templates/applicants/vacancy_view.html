@@ -1,0 +1,70 @@
+{% extends 'applicants/app_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+
+<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Vacancy Listed</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+                    <div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+							<ul class="cat-list">
+								<li><a href="#">Recent</a></li>
+								<li><a href="#">Full Time</a></li>
+							</ul>
+							<div class="single-post d-flex flex-row">
+								<div class="thumb">
+									<img src="{% static 'img/post.png' %}" alt="">
+{#									<ul class="tags">#}
+{#										<li>#}
+{#											<a href="#">Art</a>#}
+{#										</li>#}
+{#										<li>#}
+{#											<a href="#">Media</a>#}
+{#										</li>#}
+{#										<li>#}
+{#											<a href="#">Design</a>#}
+{#										</li>#}
+{#									</ul>#}
+                                </div>
+
+								<div class="details">
+                                    {% for va in post %}
+									<div class="title d-flex flex-row justify-content-between">
+
+										<div class="titles">
+											<a href="single.html"><h4>{{ va.name }}</h4></a>
+											<h6>No.Of Vacancy :{{ va.vacancy }}</h6>
+										</div>
+										<ul class="btns">
+											<li><a href="#"><span class="lnr lnr-heart"></span></a></li>
+											<li><a href="apply_vacancy?id={{ va.id }}">Apply Now</a></li>
+										</ul>
+									</div>
+
+									<p>
+                                     Education Requirements, Job Features & Overviews, Experience Requirements
+									</p>
+									<h5>Job Nature: Full time</h5>
+									<p class="address"><span class="lnr lnr-map"></span>Posted By :{{ va.hr.user.first_name }}</p>
+									<p class="address"><span class="lnr lnr-database"></span>Last Date of Apply :{{ va.date }}</p>
+								{% endfor %}
+                                </div>
+
+							</div>
+                        </div>
+                    </div>
+                </div>
+</section>
+
+
+{% endblock %}

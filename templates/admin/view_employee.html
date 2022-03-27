@@ -1,0 +1,57 @@
+{% extends 'admin/admin_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Employee List</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>
+
+<div id="page-inner" >
+<table class="table table-bordered table-striped table-hover" >
+
+<th class="success" style="background-color: #49e4fa">IMAGE</th>
+<th class="success" style="background-color: #49e4fa">POSITION DETAILS</th>
+<th class="success" style="background-color: #49e4fa">EMPLOYEE NAME</th>
+<th class="success" style="background-color: #49e4fa">EMAIL</th>
+<th class="success" style="background-color: #49e4fa">ADDRESS</th>
+<th class="success" style="background-color: #49e4fa">DOWNLOAD CURRICULUM VITAE</th>
+<th class="success" style="background-color: #49e4fa">MODE OF RECRUITMENT</th>
+<th class="success" style="background-color: #49e4fa">DEPARTMENT</th>
+<th class="success" style="background-color: #49e4fa">BASIC SALARY</th>
+<th class="success" style="background-color: #49e4fa">HR MANAGER</th>
+{% for com in post %}
+
+<tr>
+    <td style="background-color: white"><img style="max-width: 350px;max-height:90px;padding-left:px;" src="{{ com.photo.url}}"></td>
+    <td style="background-color: white">{{ com.accept.vacancy.vacancy.name}}</td>
+    <td style="background-color: white">{{ com.user.first_name}}</td>
+    <td style="background-color: white">{{ com.user.email}}</td>
+    <td style="background-color: white">{{ com.permanentadd}}</td>
+    <td style="background-color: white"><a href="{{ com.accept.vacancy.cv.url}}" target="_blank">Download</a>CV</td>
+    <td style="background-color: white">{{ com.moderecuirt}}</td>
+    <td style="background-color: white">{{ com.department}}</td>
+    <td style="background-color: white">{{ com.basicsalary}}</td>
+    <td style="background-color: white">{{ com.accept.vacancy.vacancy.hr.user.first_name}}</td>
+
+
+
+
+</tr>
+
+    {% endfor %}
+</table>
+        </div>
+                </div>
+</section>
+
+
+{% endblock %}

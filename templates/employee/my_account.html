@@ -1,0 +1,163 @@
+{% extends 'employee/emp_base.html' %}
+{% load static %}
+{% block content %}
+ {% if message %}
+         <script> alert("{{ message }}")</script>
+     {% endif %}
+    <section class="blog-posts-area section-gap">
+				<div class="container">
+					<div class="row">
+                        <div class="col-lg-8 post-list blog-post-list">
+							<div class="single-post">
+								<img class="img-fluid" src="img/blog/p1.jpg" alt="">
+
+								<a href="blog-single.html">
+									<h1>
+										MY Account Details
+									</h1>
+								</a>
+									<p>
+                                      <label>Employee ID :&nbsp; &nbsp;{{ employee.empid }}</label>
+									</p>
+                                   <label style="font-size:20px">Personal Details</label>
+                                    <p>
+                                        <label style="color:#795fff">Name : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.user.first_name }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">DOB : &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.dob }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Gender : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.gender }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Mobile : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.mob }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Present Address : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.presentadd }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Permanent Address : &nbsp; &nbsp;</label><label>{{ employee.permanentadd }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Marital Status : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.maritalstatus }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Blood Group : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.bloodgroup }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Religion :  &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label>{{ employee.religion }}</label>
+									</p>
+                                    <label style="font-size:20px">Job Details</label>
+                                    <p>
+                                        <label style="color:#795fff">Job :&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><label>{{ employee.accept.vacancy.vacancy.name }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Department :&nbsp; &nbsp;</label><label>{{ employee.department }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">My Senior :&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</label><label>{{ employee.reportingboss }}</label>
+									</p>
+                                    <p>
+                                        <label style="color:#795fff">Basic Salary :&nbsp; &nbsp;</label><label>{{ employee.permanentadd }}</label>
+									</p>
+
+								<div class="bottom-meta">
+									<div class="user-details row align-items-center">
+{#										<div class="comment-wrap col-lg-6">#}
+{#											<ul>#}
+{#												<li><a href="#"><span class="lnr lnr-heart"></span>	4 likes</a></li>#}
+{#												<li><a href="#"><span class="lnr lnr-bubble"></span> 06 Comments</a></li>#}
+{#											</ul>#}
+{#										</div>#}
+{#										<div class="social-wrap col-lg-6">#}
+{#											<ul>#}
+{#												<li><a href="#"><i class="fa fa-facebook"></i></a></li>#}
+{#												<li><a href="#"><i class="fa fa-twitter"></i></a></li>#}
+{#												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>#}
+{#												<li><a href="#"><i class="fa fa-behance"></i></a></li>#}
+{#											</ul>#}
+{##}
+{#										</div>#}
+									</div>
+								</div>
+							</div>
+                        </div>
+                        <div class="col-lg-4 sidebar">
+							<div class="single-widget search-widget">
+								  <label type="text" style="alignment:center;font-size:25px;color:#795fff">TAKE MY ACCOUNT
+                                  </label>
+							</div>
+
+							<div class="single-widget protfolio-widget">
+								<img style="max-width: 350px;max-height:90px;padding-left:px;" src="{{ employee.photo.url }}" alt="">
+								<a href="#"><h4>{{ employee.user.first_name }}</h4></a>
+								<p>
+									{{ employee.empid }}
+								</p>
+                                <p>
+									{{ employee.user.email }}
+								</p>
+								<ul>
+									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+									<li><a href="#"><i class="fa fa-behance"></i></a></li>
+								</ul>
+							</div>
+
+                   </div>
+                        <div class="col-lg-8 post-list blog-post-list">
+							<div class="single-post">
+                    <div class="col-lg-4 d-flex flex-column">
+							<h2 class="contact-btns" href="#">Update My Account</h2>
+						</div>
+						<div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                                        <label>Marital Status</label>
+                                          <div class="form-group">
+                                           <select class="form-control" name="mari"  required>
+                                               <option selected="selected" value="" >Select One </option>
+                                               <option >Married</option>
+                                               <option >Unmarried</option>
+                                            </select>
+                                          </div>
+                                        <label>Change Mobile Number</label>
+                                        <input name="mobile" placeholder="{{ employee.mob }}" class="common-input mb-20 form-control" required="" type="number">
+										<label>Change Present Address</label>
+                                        <input name="paddress" placeholder="{{ employee.presentadd }}"  class="common-input mb-20 form-control" required="" type="text">
+										<button type="submit" name="profile" value="profile" class="primary-btn mt-20 text-white" style="float: right;">Update Details</button>
+										<div class="mt-20 alert-msg" style="text-align: center;"></div>
+									</div>
+								</div>
+							</form>
+                        </div>
+                        <div class="col-lg-8">
+							<form class="form-area " method="post" class="contact-form text-right">
+                                {% csrf_token %}
+								<div class="row">
+									<div class="col-lg-12 form-group">
+                                        <label>Change Username</label>
+                                        <input name="username" placeholder="{{ employee.user.username }}"  class="common-input mb-20 form-control" required="" type="text">
+										<label>Change Password</label>
+                                        <input name="password" placeholder="{{ employee.user.password }}"  class="common-input mb-20 form-control" required="" type="password">
+
+										<button type="submit" name="profile" value="pass" class="primary-btn mt-20 text-white" style="float: right;">Update Security</button>
+										<div class="mt-20 alert-msg" style="text-align: center;"></div>
+									</div>
+								</div>
+							</form>
+                        </div>
+                    </div>
+                   </div>
+
+
+
+                    </div>
+                </div>
+    </section>
+
+
+{% endblock %}
